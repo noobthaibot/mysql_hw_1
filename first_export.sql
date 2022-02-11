@@ -1,69 +1,36 @@
--- phpMyAdmin SQL Dump
--- version 5.1.2
--- https://www.phpmyadmin.net/
---
--- Хост: mysql
--- Время создания: Фев 08 2022 г., 07:25
--- Версия сервера: 8.0.21
--- Версия PHP: 8.0.15
+INSERT INTO `products` SET `product_name`= 'Hot Pizza', `product_price`= '120 uah', `product_type`= 'Pizza', `product_compound` = 'Cheese, Chili Peper, Tomatoes, Sausage, Hot Sauce'
+DELETE FROM `products` WHERE `product_type` = 'Pizza'
+DELETE FROM `products`
+INSERT INTO `users` SET `adress`= 'Kramatorsk, Akademichna , 60', `email` = 'dgugik@ukr.net', `fullname`= 'Lazurenko Roman', `orders` = 'Hot Pizza', `phone` = '0997738551'
+SELECT `fullname`, `orders` FROM `users`
+SELECT * FROM `users`
+UPDATE `users` SET `orders` = 'Cheese Pizza' WHERE `orders` = 'Hot Pizza'
+UPDATE `users` SET `fullname` = 'John Doe' WHERE `fullname` = 'Lazurenko Roman'
+SELECT * FROM `users` WHERE `fullname` = 'John Doe'
+SELECT * FROM `users` WHERE `orders` = 'Cheese Pizza'
+INSERT INTO `basket` SET `basket_id` = 1, `date` = CURRENT_TIMESTAMP, `product_id` = 2, `user_id` = 1
+INSERT INTO `orders` SET `basket_id` = 1, `date` = CURRENT_TIMESTAMP, `quantity` = 2, `user_id` = 1
+INSERT INTO `products` SET `product_name` = 'Pepperoni', `product_price` = '130 uah', `product_type` = 'Pizza', `product_compound` = 'Pepperoni, Cheese, Tomato Sauce'
+INSERT INTO `products` SET `product_name` = 'Beefburger', `product_price` = '100 uah', `product_type` = 'Burger', `product_compound` = 'Beef, Hot Sauce, Mayonese'
+INSERT INTO `products` SET `product_name` = 'Cheeseburger', `product_price` = '95 uah', `product_type` = 'Burger', `product_compound` = 'Beef, Cheese Sauce, Mayonese'
+INSERT INTO `products` SET `product_name` = 'Margareite', `product_price` = '100 uah', `product_type` = 'Pizza', `product_compound` = 'Totamo Sauce, Cheese, Vegetables'
+INSERT INTO `users` SET `adress` = 'Kramatorsk, Vasila Stusa, 56', `email` = 'testmail1@test.te', `fullname` = 'Leonid Kravchuk', `orders` = 'Hot Pizza, Beefburger', `phone`= '880055535'
+INSERT INTO `users` SET `adress` = 'Kramatorsk, Vasila Stusa, 23', `email` = 'testmail122@test.te', `fullname` = 'Leonid Kuchma', `orders` = 'Cheese Pizza, Beefburger', `phone`= '8800151515'
+INSERT INTO `users` SET `adress` = 'Kramatorsk, Parkova, 44', `email` = 'testmail133@test.te', `fullname` = 'Viktor Uschenko', `orders` = 'Cheese Pizza, Cheeseburger', `phone`= '8800155515'
+INSERT INTO `users` SET `adress` = 'Kramatorsk, Parkova, 27', `email` = 'testmai33@test.te', `fullname` = 'Viktor Yanukovich', `orders` = 'Cheese Pizza, Cheeseburger', `phone`= '8860155515'
+INSERT INTO `products` SET `product_name`= 'Hot Pizza', `product_price`= '120 uah', `product_type`= 'Pizza', `product_compound` = 'Cheese, Chili Peper, Tomatoes, Sausage, Hot Sauce'
+INSERT INTO `orders` SET `basket_id` = 3, `date` = CURRENT_TIMESTAMP, `quantity` = 1, `user_id` = 5
+INSERT INTO `orders` SET `basket_id` = 4, `date` = CURRENT_TIMESTAMP, `quantity` = 3, `user_id` = 3
+INSERT INTO `orders` SET `basket_id` = 5, `date` = CURRENT_TIMESTAMP, `quantity` = 1, `user_id` = 1
+INSERT INTO `orders` SET `basket_id` = 6, `date` = CURRENT_TIMESTAMP, `quantity` = 1, `user_id` = 4
+INSERT INTO `orders` SET `basket_id` = 3, `date` = CURRENT_TIMESTAMP, `quantity` = 1, `user_id` = 5
+INSERT INTO `basket` SET `basket_id` = 2, `date` = CURRENT_TIMESTAMP, `product_id` = 4, `user_id` = 2
+INSERT INTO `basket` SET `basket_id` = 3, `date` = CURRENT_TIMESTAMP, `product_id` = 2, `user_id` = 3
+INSERT INTO `basket` SET `basket_id` = 4, `date` = CURRENT_TIMESTAMP, `product_id` = 5, `user_id` = 4
+INSERT INTO `basket` SET `basket_id` = 5, `date` = CURRENT_TIMESTAMP, `product_id` = 3, `user_id` = 1
+INSERT INTO `basket` SET `basket_id` = 6, `date` = CURRENT_TIMESTAMP, `product_id` = 4, `user_id` = 5
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
---
--- База данных: `education`
---
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `news`
---
-
-CREATE TABLE `news` (
-  `title` text COLLATE utf8mb4_general_ci NOT NULL,
-  `text` text COLLATE utf8mb4_general_ci NOT NULL,
-  `image` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
-  `author` text COLLATE utf8mb4_general_ci NOT NULL,
-  `date` date NOT NULL,
-  `active` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `regions`
---
-
-CREATE TABLE `regions` (
-  `donetskaya` text COLLATE utf8mb4_general_ci NOT NULL,
-  `luganskaya` text COLLATE utf8mb4_general_ci NOT NULL,
-  `kharkovskaya` text COLLATE utf8mb4_general_ci NOT NULL,
-  `poltavskaya` text COLLATE utf8mb4_general_ci NOT NULL,
-  `kievskaya` text COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `users`
---
-
-CREATE TABLE `users` (
-  `fullname` text COLLATE utf8mb4_general_ci NOT NULL COMMENT 'ФИО пользователя',
-  `adress` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `birthdate` date NOT NULL,
-  `role` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
